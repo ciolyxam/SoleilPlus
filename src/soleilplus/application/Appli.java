@@ -6,6 +6,7 @@
 package soleilplus.application;
 
 import soleilplus.donnees.JeuEssai;
+import soleilplus.metier.Dossier;
 import soleilplus.metier.Planning;
 
 /**
@@ -14,6 +15,8 @@ import soleilplus.metier.Planning;
  */
 public class Appli {
     public static void tester(){
+        // affichage des tableau generer
+        afficherDonnees();
         //quetion A
         afficherJourIncomplet();
         //quetion B
@@ -22,6 +25,7 @@ public class Appli {
         miseAJour();
     }
     private static void afficherJourIncomplet () {
+        JeuEssai.tabEquipe[0].p.tabPlanning[0][5][1] = Dossier.PAS_DE_DOSSIER;
         for (int numEquipe = 0 ; numEquipe<JeuEssai.nbEquipe; numEquipe++){
             for (int numSemaine = 0 ; numSemaine<Planning.getNbSemaines(); numSemaine++){
                 JeuEssai.tabEquipe[numEquipe].afficherJourNonPlein(numSemaine);
@@ -36,6 +40,24 @@ public class Appli {
     private static void miseAJour (){
         for (int numEquipe = 0 ; numEquipe<JeuEssai.nbEquipe; numEquipe++){
             JeuEssai.tabEquipe[numEquipe].miseAJour();
+        }
+    }
+    public static void afficherDonnees(){
+        // TODO afficher les dossiers
+        afficherDossiers();
+        // TODO afficehr les plannings
+        afficherPlannings();
+    }
+    public static void afficherDossiers(){
+        for (int numDossier = 0 ; numDossier<Dossier.nbDossier; numDossier++){
+            Dossier dossier = JeuEssai.tabDossier[numDossier];
+            System.out.println(dossier.details());
+        }
+    }
+    public static void afficherPlannings(){
+        for (int numEquipe = 0; numEquipe<JeuEssai.nbEquipe; numEquipe++){
+            System.out.println("\n\n ############ EQUIPE " + numEquipe + " ############" );
+            JeuEssai.tabEquipe[numEquipe].afficherPlanning();
         }
     }
 }

@@ -42,6 +42,7 @@ public class Planning {
              if (estUnJourIncomplet(tabPlanning[semaine][numJour])) 
                  System.out.print("| "+Planning.TAB_SEMAINE[numJour] +" ");
          }
+         System.out.println("");
      }
      public boolean  estUnJourIncomplet( Dossier [] tabInterventions){
          for ( int numInterv = 0 ; numInterv<nbInterventions ; numInterv++ ) {
@@ -88,5 +89,19 @@ public class Planning {
      public static void effacerJour (Dossier [] tabJour){
          for (int numInterv = 0 ; numInterv<nbInterventions; numInterv++)
              tabJour[numInterv] = Dossier.PAS_DE_DOSSIER;
+     }
+     public void        afficherPlanning(){
+         
+         for (int numSemaine = 0; numSemaine<nbSemaines; numSemaine++){
+             System.out.println("\n ----- Semaine "+numSemaine+" ----- ");
+             for (int numJour = 0; numJour<nbJours; numJour++) {
+                 System.out.print(Planning.TAB_SEMAINE[numJour]);
+                 for (int numInterv = 0 ; numInterv<nbInterventions; numInterv++){
+                     Dossier dossier = tabPlanning[numSemaine][numJour][numInterv];
+                     System.out.print(" |#| "+dossier.details());
+                 }
+                 System.out.println("");
+             }
+         }
      }
 }

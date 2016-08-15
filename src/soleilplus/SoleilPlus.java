@@ -5,8 +5,8 @@
  */
 package soleilplus;
 
-import soleilplus.application.Appli;
-import soleilplus.donnees.JeuEssai;
+import soleilplus.GUI.FenetrePrincipale;
+
 
 /**
  *
@@ -18,8 +18,8 @@ public class SoleilPlus {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        JeuEssai.initialiser();
-        Appli.tester();
+
+        FenetrePrincipale fenetre = new FenetrePrincipale("un test");
     }
     
 }

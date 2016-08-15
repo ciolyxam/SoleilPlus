@@ -34,7 +34,7 @@ public class Dossier {
     }
     
     public String details (){
-        return "n°"+idDossier + " - "+nomDossier+"\n"+adresseDossier;
+        return "n°"+idDossier + " - "+nomDossier+" \t "+adresseDossier;
     }
     public boolean estSansDossier(){
         return this.equals(Dossier.PAS_DE_DOSSIER);

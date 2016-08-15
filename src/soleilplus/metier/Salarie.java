@@ -53,5 +53,7 @@ public class Salarie {
     public void setPrenom(String prenom) {
         this.prenom = prenom;
     }
-
+    public String getDetails (){
+        return prenom+" "+nom;
+    }
 }
